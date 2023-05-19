@@ -1,7 +1,8 @@
 require 'csv'
 
 # Rake task for importing CSV files to database
-task :import => :environment do
+task :importCSV => :environment do
+
     CSV.foreach("app/assets/scheduling-data/locations.csv", headers: true) do |row|
         h = row.to_hash
         location = Location.new(id: h["id"], name: h["name"], city: h["city"])
@@ -20,4 +21,7 @@ task :import => :environment do
     end
 end
 
-
+# complete task to call that resets the database and imports data from the CSV files
+task import: [ 'db:drop', 'db:create', 'db:migrate', 'db:seed', 'importCSV' ] do
+    puts 'Database successfully reset.'
+end
