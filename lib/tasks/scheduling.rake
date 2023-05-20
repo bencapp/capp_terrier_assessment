@@ -21,7 +21,7 @@ task :importCSV => :environment do
     end
 end
 
-# complete task to call that resets the database and imports data from the CSV files
+# complete task that resets the database and then imports data from the CSV files
 task import: [ 'db:drop', 'db:create', 'db:migrate', 'db:seed', 'importCSV' ] do
     puts 'Database successfully reset.'
 end

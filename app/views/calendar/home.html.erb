@@ -1,0 +1,23 @@
+<h1 id="page-header" >Technician Schedule</h1>
+<section class="container">
+  <% for i in 1..5 do %>
+    <% for j in 1..12 do %>
+      <div class="calendar-box" style="grid-column-start: <%= i%>; grid-row-start: <%= j %>"></div>
+    <% end %>
+  <% end %>
+  <p id="time">
+    <b>Time</b>
+  </p>
+  <% @technicians.each do |technician| %>
+    <p class="technician" style="grid-column-start: <%= technician.id + 1%>">
+      <%= technician.name %>
+    </p>
+  <% end %>
+  <%# Time column %>
+  <% for i in 6..16 do %>
+    <p class="hour" style="grid-row-start: <%= i - 4%>"
+>
+      <%= "#{i}:00-#{i+1}:00"%>
+    </p>
+  <% end %>
+</section>

@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#page-header {
+  color: green;
+}
+
+.container {
+  display: grid;
+  width: 750px;
+  height: 600px;
+  grid-template: repeat(12, 1fr) / repeat(5, 1fr);
+  gap: 1px;
+}
+
+.calendar-box {
+  outline: 1px solid grey;
+}
+
+p {
+  text-align: center;
+}
+
+#time {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.technician {
+  grid-row-start: 1;
+}
+
+.hour {
+  grid-column-start: 1;
+}
+
+// <ul>
+//   <% @locations.each do |location| %>
+//     <p>
+//       <%= location.name %>
+//     </p>
+//   <% end %>
+// </ul>
+// <ul>
+// </ul>
+// <ul>
+//   <% @work_orders.each do |work_order| %>
+//     <li>
+//       <%= work_order.time %>
+//     </li>
+//   <% end %>
+// </ul>
