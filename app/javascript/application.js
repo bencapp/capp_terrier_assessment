@@ -10,6 +10,22 @@ function onReady() {
   // create event listeners
   $(document).on("click", ".schedule-box", popup);
   $(document).on("click", "#close-popup-btn", hidePopup);
+
+  createBlankSpaces();
+
+  console.log($(".work-order").first().data("start-minutes"));
+}
+
+// create boxes in between calendar items
+function createBlankSpaces() {
+  $(".work-order-column").each((index, column) => {
+    console.log(column.firstElementChild.data("start-minutes"));
+  });
+  // for (let column of columns) {
+  //   let minutes = 0;
+  //   // const firstWorkOrderStartMin = column.children();
+  //   console.log(column.children());
+  //   // while (minutes < )
 }
 
 // generate popup

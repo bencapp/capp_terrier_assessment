@@ -13,17 +13,20 @@
     <% for j in 2..11 do %>
       <div class="calendar-box schedule-box"
            style="grid-column-start: <%= i %>; grid-row-start: <%= j %>"
-           data-technician="<%= Technician.find(i - 1).name%>"></div>
+           data-technician="<%= Technician.find(i - 1).name%>"
+           data-hour="<%= j + 4%>
+"></div>
     <% end %>
   <% end %>
   <p id="time">
     <b>Time</b>
   </p>
-  <%# technician names %>
+  <%# technician names and container columns %>
   <% @technicians.each do |technician| %>
     <p class="technician" style="grid-column-start: <%= technician.id + 1%>">
       <%= technician.name %>
     </p>
+    <%= render 'work_orders/technician_column', technician: technician %>
   <% end %>
   <%# Time column %>
   <% for i in 6..15 do %>
@@ -31,6 +34,4 @@
       <%= "#{i}:00-#{i+1}:00"%>
     </p>
   <% end %>
-  <%# Work orders %>
-  <%= render @work_orders%>
 </section>

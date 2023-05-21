@@ -3,5 +3,6 @@ class CalendarController < ApplicationController
     @locations = Location.all
     @technicians = Technician.all
     @work_orders = WorkOrder.all
+
   end
 end

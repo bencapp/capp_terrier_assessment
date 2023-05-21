@@ -1,8 +1,7 @@
 <div class="work-order"
-     style="grid-column-start: <%= work_order.technician.id + 1%>;
-            grid-row-start: <%= work_order.time.split[1].split(":")[0].to_i - 4 %>;
-            margin-top: <%= work_order.time.split[1].split(":")[1].to_i + 2%>px;
-            height: <%= work_order.duration - 14%>px"
+     style="height: <%= work_order.duration - 9%>px"
+     data-start-minutes="<%= start_min %>"
+     data-end-minutes="<%= start_min + work_order.duration %>"
      >
   <b><%= work_order.location.name %></b>
   <br>

@@ -38,6 +38,11 @@ p {
   grid-column-start: 1;
 }
 
+.work-order-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .work-order {
   background-color: rgb(178, 214, 107);
   outline: 1px solid rgb(165, 165, 165);
@@ -45,8 +50,6 @@ p {
   font-size: small;
   overflow: hidden;
   border-radius: 3px;
-  margin-left: 2px;
-  margin-right: 2px;
   &:hover {
     z-index: 10;
     overflow: initial;
