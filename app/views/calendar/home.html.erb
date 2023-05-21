@@ -1,9 +1,19 @@
 <h1 id="page-header" >Technician Schedule</h1>
 <section class="calendar">
-  <%# create grid boxes %>
+  <%# create header and sideline boxes %>
   <% for i in 1..5 do %>
-    <% for j in 1..11 do %>
-      <div class="calendar-box" style="grid-column-start: <%= i%>; grid-row-start: <%= j %>"></div>
+    <div class="calendar-box header-box" style="grid-column-start: <%= i%>; grid-row-start: 1"></div>
+  <% end %>
+  <% for i in 2..11 do %>
+    <div class="calendar-box time-box" style="grid-column-start: 1; grid-row-start: <%= i%>
+"></div>
+  <% end %>
+  <%# create remaining grid boxes %>
+  <% for i in 2..5 do %>
+    <% for j in 2..11 do %>
+      <div class="calendar-box schedule-box"
+           style="grid-column-start: <%= i %>; grid-row-start: <%= j %>"
+           data-technician="<%= Technician.find(i - 1).name%>"></div>
     <% end %>
   <% end %>
   <p id="time">
