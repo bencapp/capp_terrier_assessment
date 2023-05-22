@@ -10,10 +10,6 @@ function onReady() {
   // create event listeners
   $(document).on("click", ".empty-time-box", popup);
   $(document).on("click", "#close-popup-btn", hidePopup);
-
-  createBlankSpaces();
-
-  console.log($(".work-order").first().data("start-minutes"));
 }
 
 // generate popup
@@ -22,6 +18,8 @@ function popup() {
   const minutesTotal = $(this).data("minutes");
   const hours = Math.floor(minutesTotal / 60);
   const minutes = minutesTotal % 60;
+
+  // determine string based on minutes data
   let timeString;
   if (hours === 0) {
     timeString = `${minutes} minutes`;
@@ -32,7 +30,7 @@ function popup() {
     and ${minutes} minutes`;
   }
 
-  console.log();
+  // append popup to the DOM
   $("body").append(`<div id="popup-bg">
                     </div>
                     <div id="popup">
@@ -42,7 +40,7 @@ function popup() {
   `);
 }
 
-// remove popup
+// remove popup on button click
 function hidePopup() {
   $("#popup-bg").remove();
   $("#popup").remove();

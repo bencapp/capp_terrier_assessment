@@ -87,20 +87,3 @@ p {
     background-color: rgb(197, 235, 121);
   }
 }
-
-// <ul>
-//   <% @locations.each do |location| %>
-//     <p>
-//       <%= location.name %>
-//     </p>
-//   <% end %>
-// </ul>
-// <ul>
-// </ul>
-// <ul>
-//   <% @work_orders.each do |work_order| %>
-//     <li>
-//       <%= work_order.time %>
-//     </li>
-//   <% end %>
-// </ul>

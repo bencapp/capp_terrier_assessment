@@ -3,18 +3,20 @@
     grid-column-start: <%= technician.id + 1 %>"
     data-technician="<%= technician.name  %>">
   <% last_order_end_time = 0 %>
+  <%# sort work orders by time %>
   <% sortedWorkOrders = technician.work_orders.sort { |a, b|
     a.time.split[1].split(':')[0].to_i * 60 + a.time.split[1].split(':')[1].to_i <=> b.time.split[1].split(':')[0].to_i * 60 + b.time.split[1].split(':')[1].to_i }
 %>
+  <%# render work orders %>
   <% sortedWorkOrders.each do |work_order| %>
     <% start_min = (work_order.time.split[1].split(':')[0].to_i * 60) + (work_order.time.split[1].split(':')[1]).to_i - 360%>
     <%= render work_order, last_order_end_time: last_order_end_time, start_min: start_min%>
     <% last_order_end_time = start_min + work_order.duration %>
   <% end %>
+  <%# render an empty time box at the end of each column %>
   <div class="empty-time-box"
     style="height: <%= 600 - last_order_end_time%>px"
     data-minutes=<%= 600 - last_order_end_time%>
 >
-    <%# <% last_order_end_time %>
   </div>
 </div>

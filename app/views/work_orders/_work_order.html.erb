@@ -1,3 +1,4 @@
+<%# conditionally render empty boxes %>
 <% if start_min > 0 %>
   <% if last_order_end_time == 0 %>
     <div class='empty-time-box'
@@ -17,6 +18,7 @@
   <% margin_top_offset = start_min - last_order_end_time%>
   <% z_index = 20 %>
 <% end %>
+<%# render work order %>
 <div class="work-order"
      style="height: <%= work_order.duration - 10%>px;
             margin-top: <%= margin_top_offset %>px;
