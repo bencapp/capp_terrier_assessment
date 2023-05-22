@@ -36,7 +36,7 @@ function popup() {
   $("body").append(`<div id="popup-bg">
                     </div>
                     <div id="popup">
-                      <div>${name} is free for ${timeString} here.</div>
+                      <div>${name} is free for <b>${timeString}</b> here.</div>
                       <button id="close-popup-btn">OK</button>
                     </div>
   `);
