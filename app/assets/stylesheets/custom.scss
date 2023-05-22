@@ -38,11 +38,6 @@ p {
   grid-column-start: 1;
 }
 
-.work-order-column {
-  // display: flex;
-  // flex-direction: column;
-}
-
 .work-order {
   background-color: rgb(178, 214, 107);
   outline: 1px solid rgb(165, 165, 165);
@@ -55,10 +50,6 @@ p {
     z-index: 2;
     overflow: initial;
   }
-}
-
-.empty-box {
-  border: 1px solid red;
 }
 
 #popup-bg {

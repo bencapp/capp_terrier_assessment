@@ -8,7 +8,7 @@ $(document).ready(onReady);
 
 function onReady() {
   // create event listeners
-  $(document).on("click", ".schedule-box", popup);
+  $(document).on("click", ".empty-time-box", popup);
   $(document).on("click", "#close-popup-btn", hidePopup);
 
   createBlankSpaces();
@@ -16,27 +16,27 @@ function onReady() {
   console.log($(".work-order").first().data("start-minutes"));
 }
 
-// create boxes in between calendar items
-function createBlankSpaces() {
-  // $(".work-order-column").each((index, column) => {
-  //   console.log(column.firstElementChild.data("start-minutes"));
-  // });
-  // for (let column of columns) {
-  //   let minutes = 0;
-  //   // const firstWorkOrderStartMin = column.children();
-  //   console.log(column.children());
-  //   // while (minutes < )
-}
-
 // generate popup
 function popup() {
-  const name = $(this).data("technician");
-  const minutes = 60;
+  const name = $(this).parent().data("technician");
+  const minutesTotal = $(this).data("minutes");
+  const hours = Math.floor(minutesTotal / 60);
+  const minutes = minutesTotal % 60;
+  let timeString;
+  if (hours === 0) {
+    timeString = `${minutes} minutes`;
+  } else if (minutes === 0) {
+    timeString = `${hours} hour${hours > 1 ? "s" : ""}`;
+  } else {
+    timeString = `${hours} hour${hours > 1 ? "s" : ""}
+    and ${minutes} minutes`;
+  }
+
   console.log();
   $("body").append(`<div id="popup-bg">
                     </div>
                     <div id="popup">
-                      <div>${name} is free for ${minutes} minutes here.</div>
+                      <div>${name} is free for ${timeString} here.</div>
                       <button id="close-popup-btn">OK</button>
                     </div>
   `);

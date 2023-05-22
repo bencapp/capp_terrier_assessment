@@ -1,6 +1,7 @@
 <div class="work-order-column"
     style="grid-row: 2 / span 10;
-    grid-column-start: <%= technician.id + 1 %>">
+    grid-column-start: <%= technician.id + 1 %>"
+    data-technician="<%= technician.name  %>">
   <% last_order_end_time = 0 %>
   <% sortedWorkOrders = technician.work_orders.sort { |a, b|
     a.time.split[1].split(':')[0].to_i * 60 + a.time.split[1].split(':')[1].to_i <=> b.time.split[1].split(':')[0].to_i * 60 + b.time.split[1].split(':')[1].to_i }
@@ -10,8 +11,10 @@
     <%= render work_order, last_order_end_time: last_order_end_time, start_min: start_min%>
     <% last_order_end_time = start_min + work_order.duration %>
   <% end %>
-  <div class="empty-box"
-    style="height: <%= 600 - last_order_end_time%>px">
+  <div class="empty-time-box"
+    style="height: <%= 600 - last_order_end_time%>px"
+    data-minutes=<%= 600 - last_order_end_time%>
+>
     <%# <% last_order_end_time %>
   </div>
 </div>
