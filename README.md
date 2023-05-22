@@ -8,7 +8,7 @@ Ruby Version 3.2.2
 
 ## Installation
 
-1. Fork and clone this repository.
+1. Clone this repository.
 2. Run `bundle install` to install gems.
 3. Ensure that the "app/assets/scheduling-data" folder contains these three .csv files. This repository does include them for convenience, but the database population will not work unless they are in that file and named correctly.
    - locations.csv
