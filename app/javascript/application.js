@@ -2,8 +2,9 @@
 import "@hotwired/turbo-rails";
 import "controllers";
 
-import "./jquery";
+// import "./jquery";
 //= require jquery
+//= require jquery_ujs
 
 $(document).ready(onReady);
 
