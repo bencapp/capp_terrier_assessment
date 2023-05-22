@@ -2,7 +2,6 @@ require 'csv'
 
 # Rake task for importing CSV files to database
 task :importCSV => :environment do
-
     CSV.foreach("app/assets/scheduling-data/locations.csv", headers: true) do |row|
         h = row.to_hash
         location = Location.new(id: h["id"], name: h["name"], city: h["city"])
