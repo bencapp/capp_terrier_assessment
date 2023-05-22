@@ -50,8 +50,9 @@ p {
   font-size: small;
   overflow: hidden;
   border-radius: 3px;
+  position: relative;
   &:hover {
-    z-index: 10;
+    z-index: 2;
     overflow: initial;
   }
 }

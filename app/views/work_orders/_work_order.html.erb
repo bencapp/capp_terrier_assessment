@@ -7,9 +7,16 @@
       style="height: <%= start_min - last_order_end_time%>px"></div>
   <% end %>
 <% end %>
+<%# check for overlap edge case %>
+<% margin_top_offset = 0, z_index = 1%>
+<% if last_order_end_time > start_min %>
+  <% margin_top_offset = start_min - last_order_end_time%>
+  <% z_index = 20 %>
+<% end %>
 <div class="work-order"
      style="height: <%= work_order.duration - 9%>px;
-            "
+            margin-top: <%= margin_top_offset %>px;
+            z-index: <%= z_index %>"
      data-start-minutes="<%= start_min %>"
      data-end-minutes="<%= start_min + work_order.duration %>"
      >
