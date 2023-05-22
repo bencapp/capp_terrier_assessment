@@ -1,11 +1,21 @@
+<% if start_min > 0 %>
+  <% if last_order_end_time == 0 %>
+    <div class='empty-box'
+      style="height: <%= start_min%>px"></div>
+  <% else %>
+    <div class='empty-box'
+      style="height: <%= start_min - last_order_end_time%>px"></div>
+  <% end %>
+<% end %>
 <div class="work-order"
-     style="height: <%= work_order.duration - 9%>px"
+     style="height: <%= work_order.duration - 9%>px;
+            "
      data-start-minutes="<%= start_min %>"
      data-end-minutes="<%= start_min + work_order.duration %>"
      >
   <b><%= work_order.location.name %></b>
   <br>
-  <%= work_order.location.city %> at <%= work_order.time.split[1] %>
+  <%= work_order.location.city %> at <%= work_order.time.split[1] %> (<%= start_min %>)
   <br>
   <%= work_order.duration %> minutes
   $<%= work_order.price %>

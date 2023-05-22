@@ -18,9 +18,9 @@ function onReady() {
 
 // create boxes in between calendar items
 function createBlankSpaces() {
-  $(".work-order-column").each((index, column) => {
-    console.log(column.firstElementChild.data("start-minutes"));
-  });
+  // $(".work-order-column").each((index, column) => {
+  //   console.log(column.firstElementChild.data("start-minutes"));
+  // });
   // for (let column of columns) {
   //   let minutes = 0;
   //   // const firstWorkOrderStartMin = column.children();

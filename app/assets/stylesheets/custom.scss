@@ -39,8 +39,8 @@ p {
 }
 
 .work-order-column {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .work-order {
@@ -54,6 +54,10 @@ p {
     z-index: 10;
     overflow: initial;
   }
+}
+
+.empty-box {
+  border: 1px solid red;
 }
 
 #popup-bg {

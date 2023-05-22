@@ -1,11 +1,17 @@
 <div class="work-order-column"
     style="grid-row: 2 / span 10;
-    grid-column-start: <%= technician.id + 1 %>;
-    background-color: yellow">
-  <% minutes = 0%>
-  <% technician.work_orders.each do |work_order| %>
-    <%= render work_order, start_min: (work_order.time.split[1].split(':')[0].to_i * 60) + (work_order.time.split[1].split(':')[1]).to_i - 360
- %>
-    <% minutes = minutes + work_order.duration %>
+    grid-column-start: <%= technician.id + 1 %>">
+  <% last_order_end_time = 0 %>
+  <% sortedWorkOrders = technician.work_orders.sort { |a, b|
+    a.time.split[1].split(':')[0].to_i * 60 + a.time.split[1].split(':')[1].to_i <=> b.time.split[1].split(':')[0].to_i * 60 + b.time.split[1].split(':')[1].to_i }
+%>
+  <% sortedWorkOrders.each do |work_order| %>
+    <% start_min = (work_order.time.split[1].split(':')[0].to_i * 60) + (work_order.time.split[1].split(':')[1]).to_i - 360%>
+    <%= render work_order, last_order_end_time: last_order_end_time, start_min: start_min%>
+    <% last_order_end_time = start_min + work_order.duration %>
   <% end %>
+  <div class="empty-box"
+    style="height: <%= 600 - last_order_end_time%>px">
+    <%# <% last_order_end_time %>
+  </div>
 </div>

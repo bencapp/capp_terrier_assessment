@@ -8,6 +8,12 @@
     <div class="calendar-box time-box" style="grid-column-start: 1; grid-row-start: <%= i%>
 "></div>
   <% end %>
+  <%# Time column %>
+  <% for i in 6..15 do %>
+    <p class="hour" style="grid-row-start: <%= i - 4%>">
+      <%= "#{i}:00-#{i+1}:00"%>
+    </p>
+  <% end %>
   <%# create remaining grid boxes %>
   <% for i in 2..5 do %>
     <% for j in 2..11 do %>
@@ -27,11 +33,5 @@
       <%= technician.name %>
     </p>
     <%= render 'work_orders/technician_column', technician: technician %>
-  <% end %>
-  <%# Time column %>
-  <% for i in 6..15 do %>
-    <p class="hour" style="grid-row-start: <%= i - 4%>">
-      <%= "#{i}:00-#{i+1}:00"%>
-    </p>
   <% end %>
 </section>
