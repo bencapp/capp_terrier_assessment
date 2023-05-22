@@ -9,12 +9,13 @@ Ruby Version 3.2.2
 ## Installation
 
 1. Fork and clone this repository.
-2. Ensure that the "app/assets/scheduling-data" folder contains these three .csv files. This repository does include them for convenience, but the database population will not work unless they are in that file and named correctly.
+2. Run `bundle install` to install gems.
+3. Ensure that the "app/assets/scheduling-data" folder contains these three .csv files. This repository does include them for convenience, but the database population will not work unless they are in that file and named correctly.
    - locations.csv
    - technicians.csv
    - work_orders.csv
-3. Run `rake import` in the terminal. This will clear any existing database, migrate a new one with the approprate model architecture, and populate the database with data from the .csv files.
-4. Run `rails s` to start the server and navigate to http://localhost:3000/ in the browser.
+4. Run `rake import` in the terminal. This will clear any existing database, migrate a new one with the approprate model architecture, and populate the database with data from the .csv files.
+5. Run `rails s` to start the server and navigate to http://localhost:3000/ in your browser.
 
 ## Developer Notes
 
